@@ -1,0 +1,168 @@
+@mixin text($font-family: Mulish, $font-size: 20px, $font-weight: 500, $line-height: 128.5%, $color: var(--textblue)) {
+    font-family: $font-family;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    line-height: $line-height;
+    color: $color;
+}
+
+.work {
+    &__project {
+        position: relative;
+        overflow: hidden;
+        border-radius: 30px;
+        margin-bottom: 140px;
+        display: flex;
+        padding: 73px 106px;
+        justify-content: space-between;
+        background-color: #eef0f9;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        .pattern {
+            position: absolute;
+            z-index: 1;
+            background-color: #D9DFF2; 
+        }
+        &-pattern-1 {
+            width: 314px;
+            height: 314px;
+            border-radius: 100%;
+            top: -44%;
+            left: -11%;
+        }
+        &-pattern-2 {
+            width: 1300px;
+            height: 1300px;
+            border-radius: 253px 26px 0 0;
+            top: 0%;
+            right: -82%;
+        }
+        &-info {
+            width: calc(50% - 57px);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            &-title {
+                @include text($font-family: Fraunces, $font-size: 40px, $font-weight: 600, $line-height: 110%);
+            }
+            &-taglist {
+                display: flex;
+                gap: 15px;
+            }
+            &-tag {
+                @include text($font-size: 18px, $font-weight: 600, $color: #6878AC);
+                border-radius: 10px;
+                border: none;
+                padding: 11px 20px;
+                background-color: #D9DEEE ;
+            }
+            &-text {
+                @include text($font-family: Mulish, $line-height: 100%, $color: #525665);
+            }
+            &-btn {
+                padding: 19px 38px;
+                border-radius: 10px;
+                @include text($font-family: Mulish, $font-weight: 700, $color: #fff);
+                border: none;
+                text-decoration: none;
+                background-color: #FF774C;
+            }
+        }
+        &-illustration {
+            position: relative;
+            width: calc(50% - 57px);
+            &-img1 {
+                position: absolute;
+                z-index: 1;
+                top: -21%;
+                left: 0;
+            }
+            &-img2 {
+                position: absolute;
+                z-index: 2;
+                top: 0;
+                left: 16%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .work {
+        &__project{
+            &-pattern-1 { top: -47%; }
+            &-pattern-2 { right: -113%; }
+            &-illustration-img1 { top: -16%; }
+            &-illustration-img2 { top: 16%; }   
+            &-info {
+                &-title { font-size: 34px; }
+                &-text { font-size: 18px; }
+                &-btn { padding: 19px 30px; font-size: 17px; }
+            }     
+        }
+        
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .work {
+        &__project {
+            margin-bottom: 100px;
+            padding: 60px;
+            &-pattern-1 { top: -63%; left: -20%; }
+            &-pattern-2 { right: -150%; }
+            &-illustration-img1 { top: -1%; }
+            &-illustration-img2 { top: 27%; }
+            &-info {
+                width: 50%;
+                gap: 18px;
+                &-title { font-size: 26px; }
+                &-tag { font-size: 16px; padding: 11px 15px; }
+                &-text { font-size: 16px; }
+                &-btn { padding: 16px 24px; font-size: 16px; }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .work {
+        &__project {
+            padding: 40px;
+            margin-bottom: 70px;
+            &-illustration, &-illustration-img1, &-illustration-img2, &-pattern-1, &-pattern-2 { display: none; }
+            &-info {
+                flex-direction: column;
+                width: 100%;
+                &-title { font-size: 22px; }
+                &-tag { font-size: 13px; }
+                &-text { font-size: 14px; }
+                &-btn { width: 146px; padding: 13px; font-size: 13px; img { width: 10px; }}
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .work {
+        &__project {
+            margin-bottom: 50px;
+            padding: 40px;
+            &-info {
+                &-title { font-size: 20px; }
+                &-tag { font-size: 11px; padding: 11px; }
+                &-text { font-size: 13px; }
+                &-btn { padding: 14px; font-size: 11px; img {width: 9px;}}
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 374px) {
+    .work {
+        &__project {
+            &-info-tag { font-size: 10px; }
+        }
+    }
+}
